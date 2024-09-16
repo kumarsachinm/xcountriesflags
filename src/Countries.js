@@ -4,7 +4,7 @@ export default function Countries () {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("https://xcountries-backend.azurewebsites.net/all")
       .then((response) => response.json())
       .then((data) => setCountries(data))
       .catch((error) => console.error("Error fetching data: ", error));
@@ -37,14 +37,14 @@ export default function Countries () {
 
   return (
     <div style={containerStyle}>
-      {countries.map((country) => (
-        <div key={country.cca3} style={cardStyle}>
+      {countries.map((country, index) => (
+        <div key={index} style={cardStyle}>
           <img
-            src={country.flags.png}
-            alt={`Flag of ${country.name.common}`}
+            src={country.flags}
+            alt={`Flag of ${country.name}`}
             style={imageStyle}
           />
-          <h2>{country.name.common}</h2>
+          <h2>{country.name}</h2>
         </div>
       ))}
     </div>
