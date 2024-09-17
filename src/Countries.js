@@ -40,11 +40,11 @@ export default function Countries () {
       {countries.map((country, index) => (
         <div key={index} style={cardStyle}>
           <img
-            src={country.flags}
+            src={country.flag}
             alt={`Flag of ${country.name}`}
             style={imageStyle}
           />
-          <h2>{country.name}</h2>
+          <h3>{country.name}</h3>
         </div>
       ))}
     </div>
